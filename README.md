@@ -97,7 +97,7 @@ Activity本质上有四种状态：
 
 在上面的四中常有的状态之间，还有着其他的生命周期来作为不同状态之间的过度，用于在不同的状态之间进行转换，生命周期的具体说明见下。
 
-![](E:\Typora文档\Andorid截图\Activity生命周期.png)
+![https://github.com/MartinZou0/Android_EXP_2/blob/master/ScreenShot/Activity%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png]()
 
 |    方法     |                             说明                             | 是否能事后终止？ |           后接            |
 | :---------: | :----------------------------------------------------------: | :--------------: | :-----------------------: |
@@ -194,19 +194,19 @@ public class MainActivity extends AppCompatActivity {
 
 1.在手机上运行起来打开，查看Logcat如下图所示
 
-![](E:\Typora文档\Andorid截图\Activity截图4.png)
+![](https://github.com/MartinZou0/Android_EXP_2/blob/master/ScreenShot/Activity%E6%88%AA%E5%9B%BE4.png)
 
 手机加载应用至显示界面时，Activity启动–>onCreate()–>onStart()–>onResume()依次被调用。此时MainActivity处于可交互的状态。
 
 2.当我按下Home键时回到主界面时Logcat为
 
-![1524742701256](C:\Users\10630\AppData\Local\Temp\1524742701256.png)
+![](https://github.com/MartinZou0/Android_EXP_2/blob/master/ScreenShot/Activity%E6%88%AA%E5%9B%BE2.png)
 
 点击Home键回到主界面(Activity不可见)–>onPause()–>onStop()依次被调用。
 
 3.当点击Home键回到主界面后，再次点击App回到Activity时，Logcat结果如下
 
-![](E:\Typora文档\Andorid截图\Activity截图3.png)
+![](https://github.com/MartinZou0/Android_EXP_2/blob/master/ScreenShot/Activity%E6%88%AA%E5%9B%BE3.png)
 
 我们可以发现重新回到Activity时，调用了onRestart方法，onStart方法，onResume方法。因此， 
 
@@ -214,28 +214,28 @@ public class MainActivity extends AppCompatActivity {
 
 4.当我按下返回键时，应用退出，MainActivity被销毁
 
-![](E:\Typora文档\Andorid截图\Activty实验截图2.png)
+![](https://github.com/MartinZou0/Android_EXP_2/blob/master/ScreenShot/Activty%E5%AE%9E%E9%AA%8C%E6%88%AA%E5%9B%BE2.png)
 
 onPause()->onStop()->onDestroy()依次被调用，MainActivity被销毁。
 
 5.当加载应用进入主界面，并点击按钮进行页面跳转时，查看Logcat为
 
-![](E:\Typora文档\Andorid截图\Activity截图5.png)
+![](https://github.com/MartinZou0/Android_EXP_2/blob/master/ScreenShot/Activity%E6%88%AA%E5%9B%BE5.png)
 
 在原Activity调用了onPause()和onStop()方法，同时我们也发现了，在进行MainActivity进行完onPause()之后SecondActivity的生命周期方法才能被回调，所以这就是为什么onPause()方法不能操作耗时任务的原因了。
 
 6.当我们点击Back键回退时，Logcat结果为
 
-![](E:\Typora文档\Andorid截图\Activity截图6.png)
+![](https://github.com/MartinZou0/Android_EXP_2/blob/master/ScreenShot/Activity%E6%88%AA%E5%9B%BE6.png)
 
 点击之后SecondActivity的onPause()方法，onStop()方法，onDestroy()方法依次调用，MainActivity的onRestart(),onStart(),onResume()会依次调用。在进行SecondActivity进行完onPause()之后MainActivity的生命周期方法才能被回调。
 
 7.当我们点击SecondActivity界面中的按钮跳到MainActivity，Logcat为下图所示
 
-![](E:\Typora文档\Andorid截图\Activity截图7.png)
+![](https://github.com/MartinZou0/Android_EXP_2/blob/master/ScreenShot/Activity%E6%88%AA%E5%9B%BE7.png)
 
 会发现MainActivity并不会调用onRestart(),而是直接进行onCreate(),onStart(),onResume()的调用，跳转完毕之后SecondActivity并没有被销毁卫视处于onStop()状态，这表明SecondActivity()并没有被销毁。
 
 
 
-**小结：**当Activity启动时，依次会调用onCreate(),onStart(),onResume()，而当Activity退居后台时（不可见，点击Home或者被新的Activity完全覆盖），onPause()和onStop()会依次被调用。当Activity重新回到前台（从桌面回到原Activity或者被覆盖后又回到原Activity）时，onRestart()，onStart()，onResume()会依次被调用。当Activity退出销毁时（点击back键），onPause()，onStop()，onDestroy()会依次被调用，到此Activity的整个生命周期方法回调完成。
+**小结**:当Activity启动时，依次会调用onCreate(),onStart(),onResume()，而当Activity退居后台时（不可见，点击Home或者被新的Activity完全覆盖），onPause()和onStop()会依次被调用。当Activity重新回到前台（从桌面回到原Activity或者被覆盖后又回到原Activity）时，onRestart()，onStart()，onResume()会依次被调用。当Activity退出销毁时（点击back键），onPause()，onStop()，onDestroy()会依次被调用，到此Activity的整个生命周期方法回调完成。
