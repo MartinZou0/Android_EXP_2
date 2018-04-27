@@ -97,7 +97,7 @@ Activity本质上有四种状态：
 
 在上面的四中常有的状态之间，还有着其他的生命周期来作为不同状态之间的过度，用于在不同的状态之间进行转换，生命周期的具体说明见下。
 
-![https://github.com/MartinZou0/Android_EXP_2/blob/master/ScreenShot/Activity%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png]()
+![](https://github.com/MartinZou0/Android_EXP_2/blob/master/ScreenShot/Activity%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png)
 
 |    方法     |                             说明                             | 是否能事后终止？ |           后接            |
 | :---------: | :----------------------------------------------------------: | :--------------: | :-----------------------: |
