@@ -212,7 +212,7 @@ public class MainActivity extends AppCompatActivity {
 
 当我们再次回到原Activity时–>onRestart()–>onStart()–>onResume()依次被调用。
 
-4.当我按下返回键时，应用退出，MainActivity被销毁
+4.当我按下返回键时，应用退出，MainActivity被销毁（Destroyed）
 
 ![image](https://github.com/MartinZou0/Android_EXP_2/blob/master/ScreenShot/Activty%E5%AE%9E%E9%AA%8C%E6%88%AA%E5%9B%BE2.png)
 
